@@ -1,14 +1,16 @@
 function toggleContent(id) {
-  // TODO: Should not collapse an empty object
-  //       Array of zero length is rendered as object
   var div = document.getElementById('content#' + id);
+  if(div.innerHTML.length == 0) return;
   var elipsis = document.getElementById('elipsis#' + id);
+  var space = document.getElementById('space#' + id);
   if(div.style.display !== 'none') {
     div.style.display = 'none';
     elipsis.style.display = 'inline';
+    space.style.display = 'none';
   } else {
     div.style.display = 'block';
     elipsis.style.display = 'none';
+    space.style.display = 'inline';
   }
 }
 
@@ -39,8 +41,9 @@ function format(parsed_json, indent) {
   var isArray;
   var leftBracket;
   var rightBracket;
+  var tmpContentId;
 
-  // TODO: Clraify this
+  // TODO: Clarify this
   bracketCountValue = leftBracketCount;
   events = ' onclick="toggleContent(' + contentId + ');"';
   events += ' onmouseover="highlightMatching(' + leftBracketCount + ', true)"';
@@ -53,16 +56,16 @@ function format(parsed_json, indent) {
   } else if(typeof(parsed_json) === 'string') {
     result += '<span class="value">"' + parsed_json + '"</span>'; 
   } else { // Array or object
-    isArray = typeof(parsed_json) === 'object' && parsed_json.length;
+    isArray = typeof(parsed_json) === 'object' && parsed_json.length != undefined;
     leftBracket = isArray ? '[' : '{';
     rightBracket = isArray ? ']' : '}';
     result += '<span id="leftBracket#' + leftBracketCount +
       '" class="bracket"' + events + '>' + leftBracket + '</span>';
     leftBracketCount++;
     result += '<span id="elipsis#' + contentId +
-      '"class="elipsis" style="display:none;">...</span>';
+      '"class="elipsis" style="display:none;">&#133;</span>';
     result += '<div id="content#' + contentId + '" class="bracket-content">';
-    contentId++;
+    tmpContentId = contentId++;
     items = [];
     if(isArray) {
       for (i = 0; i < parsed_json.length; i++) {
@@ -78,7 +81,7 @@ function format(parsed_json, indent) {
     }
     result += items.join('<span class="comma">,</span><br />');
     result += '</div>';
-    result += spaces.substring(0, spaces.length - 2) + 
+    result += '<span id="space#' + tmpContentId + '">' + spaces.substring(0, spaces.length - 2) + '</span>' + 
       '<span id="rightBracket#' + bracketCountValue +
       '" class="bracket"' + events + '>' + rightBracket +'</span>';
   }
