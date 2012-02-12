@@ -141,13 +141,13 @@ window.onload = function() {
   var alert_box = document.getElementById("alert-box");
   var loader = document.getElementById("loader");
   var timeout;
+  var json;
 
   input.onkeyup = function() {
     try {
-      var json = JSON.parse(input.value);
+      json = JSON.parse(input.value);
       input.style.borderColor = "#EEE";
       alert_box.innerHTML = format(json, 0);
-      alert(formatAsText(json, 0));
     } catch (error) {
       input.style.borderColor = "#E00";
     }
@@ -201,4 +201,13 @@ window.onload = function() {
   }
 
   input.focus();
+
+  // ZeroClipboard
+  var clip = new ZeroClipboard.Client();
+  clip.setHandCursor( true );
+  clip.glue( 'd_clip_button', 'd_clip_container' );
+  clip.addEventListener( 'onMouseDown', function(client) {
+    json = JSON.parse(input.value);
+    clip.setText( formatAsText(json, 0));
+  });
 }
