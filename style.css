@@ -10,6 +10,7 @@ html, body {
 body {
   font-family: "Courier New", Courier, monospace;
   overflow: hidden;
+  font-size: 100%;
 }
 
 #left {
@@ -33,48 +34,27 @@ body {
   padding: 20px;
 }
 
-#input {
-  padding: 1em;
-  width: 300px;
-  margin: 0px auto;
-  height: 400px;
-  resize: none;
-  font-size: 1.1em;
-  outline: none;
-  border: 2px solid #EEE;
-  color: #333;
-  z-index: -10;
-}
-
-#fader {
-  position: relative;
-  /*position: absolute;
-  bottom: 0px;
-  left: 0px;*/
-  width: 338px;
-  height: 102px;
-  margin-top:-102px;
-  z-index:10;
-  background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,0) 1%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(1%,rgba(255,255,255,0)), color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 100%); /* IE10+ */
-  background: linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-
-}
-
 #urlinput {
-  padding: 1em;
+  padding: 10px;
   width: 300px;
   height: 1em;
   resize: none;
   overflow:hidden;
-  font-size:1.1em;
   outline: none;
   border: 2px solid #EEE;
   color: #333;
+  font-size: 1.125em;
+}
+
+#input {
+  padding: 10px;
+  width: 300px;
+  height: 450px;
+  resize: none;
+  outline: none;
+  border: 2px solid #EEE;
+  color: #333;
+  font-size: 1.125em;
 }
 
 img#loader {
