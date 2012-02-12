@@ -85,3 +85,43 @@ span.bracket:hover {
 span.elipsis {
   color:green;
 }
+
+#d_clip_container {
+  position:relative;
+  float: left;
+}
+
+#d_clip_container embed:focus {
+  outline: none;
+}
+
+#d_clip_button {
+  width: 14px;
+  height: 14px;
+  background: url('assets/button_up.png') no-repeat left center;
+}
+
+#d_clip_button.hover {
+  background: url('assets/button_over.png') no-repeat left center;
+}
+#d_clip_button.active {
+  background: url('assets/button_down.png') no-repeat left center;
+}
+
+#label {
+  font-size: 0.8em;
+  height: 14px;
+  line-height: 14px;
+  font-size: 14px;
+  position: relative;
+  float: left;
+  padding-left: 10px;
+  clear: right;
+  visibility: hidden;
+}
+
+#clear {
+  position: relative;
+  clear: both;
+  margin-bottom: 10px;
+}
