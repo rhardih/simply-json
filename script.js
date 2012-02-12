@@ -1,3 +1,5 @@
+// TODO: Some objects doesn't collapse correctly, leaving a linebreak
+
 function toggleContent(id) {
   var div = document.getElementById('content#' + id);
   if(div.innerHTML.length == 0) return;
