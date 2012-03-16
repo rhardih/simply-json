@@ -20,7 +20,6 @@ body {
   left: 0px;
   padding: 20px;
   width: 340px;
-  /*background-color:blue;*/
 }
 
 #right {
@@ -29,7 +28,6 @@ body {
   right: 0px;
   bottom: 0px;
   left: 380px;
-  /*background-color:red;*/
   overflow: auto;
   padding: 20px;
 }
@@ -43,7 +41,6 @@ body {
   outline: none;
   border: 2px solid #EEE;
   color: #333;
-  font-size: 1.125em;
 }
 
 #input {
@@ -54,15 +51,10 @@ body {
   outline: none;
   border: 2px solid #EEE;
   color: #333;
-  font-size: 1.125em;
 }
 
 img#loader {
   display:none;
-}
-
-pre#alert-box {
-  font-size:1.2em;
 }
 
 span.key {
@@ -78,7 +70,7 @@ span.bracket, span.comma, span.colon {
   font-weight: bold;
 }
 
-span.bracket:hover {
+span.bracket:hover, #d_clip_container {
   cursor:pointer;
 }
 
@@ -109,10 +101,8 @@ span.elipsis {
 }
 
 #label {
-  font-size: 0.8em;
   height: 14px;
   line-height: 14px;
-  font-size: 14px;
   position: relative;
   float: left;
   padding-left: 10px;
@@ -124,4 +114,15 @@ span.elipsis {
   position: relative;
   clear: both;
   margin-bottom: 10px;
+}
+
+a#fork-link {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #000;
+}
+
+a#fork-link img {
+  height: 25px;
 }
