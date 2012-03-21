@@ -90,14 +90,14 @@ span.elipsis {
 #d_clip_button {
   width: 14px;
   height: 14px;
-  background: url('assets/button_up.png') no-repeat left center;
+  background: url('buttons.png') no-repeat left top;
 }
 
 #d_clip_button.hover {
-  background: url('assets/button_over.png') no-repeat left center;
+  background-position: 0px -14px;
 }
 #d_clip_button.active {
-  background: url('assets/button_down.png') no-repeat left center;
+  background-position: 0px -28px;
 }
 
 #label {
