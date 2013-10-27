@@ -29,25 +29,13 @@
   -->
 
 </head>
-<body>
+<body aria-busy="false">
+  <input id="url" type="text" placeholder="URL" tabindex=1>
+
   <div id="left">
-    <p><strong>URL</strong></p>
-    <input type="text" id="urlinput" />
-    <p><strong>JSON</strong></p>
-    <textarea id="input"></textarea>
+    <textarea id="json" placeholder="JSON" tabindex=2></textarea>
   </div>
-  <div id="right">
-    <div id="d_clip_container">
-      <div id="d_clip_button"></div>
-    </div>
-    <div id="label"><strong>Copy to clipboard</strong></div>
-    <div id="clear"></div>
-    <img id="loader" src="ajax-loader.gif" alt="Loading..." />
-    <pre id="alert-box">
-    </pre>
-  </div>
-  <a id="fork-link" href="http://github.com/rhardih/simply-json">
-    Source on GitHub
-  </a>
+
+  <pre id="right"></pre>
 </body>
 </html>
