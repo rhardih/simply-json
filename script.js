@@ -203,20 +203,4 @@ window.onload = function() {
     
     timeout = setTimeout(handleRequest, 1200);
   }
-
-  //// ZeroClipboard
-  //var clip = new ZeroClipboard.Client();
-  //clip.setHandCursor( true );
-  //clip.glue( 'd_clip_button', 'd_clip_container' );
-  //clip.addEventListener( 'onMouseDown', function() {
-  //    json = JSON.parse(input.value);
-  //    clip.setText(formatAsText(json, 0));
-  //});
-  //var label = document.getElementById("label");
-  //clip.addEventListener( 'onMouseOver', function() {
-  //  label.style.visibility = "visible";
-  //});
-  //clip.addEventListener( 'onMouseOut', function() {
-  //  label.style.visibility = "hidden";
-  //});
 }

@@ -116,34 +116,12 @@ span.bracket, span.comma, span.colon {
   font-weight: bold;
 }
 
-span.bracket:hover, #d_clip_container {
+span.bracket:hover {
   cursor:pointer;
 }
 
 span.elipsis {
   color:green;
-}
-
-#d_clip_container {
-  position:relative;
-  float: left;
-}
-
-#d_clip_container embed:focus {
-  outline: none;
-}
-
-#d_clip_button {
-  width: 14px;
-  height: 14px;
-  background: url('buttons.png') no-repeat left top;
-}
-
-#d_clip_button.hover {
-  background-position: 0px -14px;
-}
-#d_clip_button.active {
-  background-position: 0px -28px;
 }
 
 #label {
