@@ -138,20 +138,20 @@ function formatAsText(parsed_json, indent) {
 }
 
 window.onload = function() {
-  var input = document.getElementById("input");
-  var url = document.getElementById("urlinput");
-  var alert_box = document.getElementById("alert-box");
-  var loader = document.getElementById("loader");
+  var input = document.getElementById("json");
+  var url = document.getElementById("url");
+  var right = document.getElementById("right");
+  var body = document.getElementsByTagName("body")[0];
   var timeout;
   var json;
 
   input.onkeyup = function() {
     try {
       json = JSON.parse(input.value);
-      input.style.borderColor = "#EEE";
-      alert_box.innerHTML = format(json, 0);
+      right.innerHTML = format(json, 0);
+      input.className = "";
     } catch (error) {
-      input.style.borderColor = "#E00";
+      input.className = "error";
     }
   }
   
@@ -161,8 +161,8 @@ window.onload = function() {
       var xhr = new XMLHttpRequest();
       var json;
 
-      alert_box.innerHTML = "";
-      loader.style.display = "block";
+      right.innerHTML = "";
+      body.setAttribute("aria-busy", "true");
 
       xhr.onreadystatechange = function() {
         switch(xhr.readyState) {
@@ -176,16 +176,18 @@ window.onload = function() {
             break;
           case XMLHttpRequest.DONE:
             url.style.borderColor = "#EEE";
-            loader.style.display = "none";
+            body.setAttribute("aria-busy", "false");
             if(xhr.status == 200) {
 
               try {
                 json = JSON.parse(xhr.responseText);
                 input.value = xhr.responseText;
-                alert_box.innerHTML = format(json, 0);
-              } catch (error) {}
+                right.innerHTML = format(json, 0);
+              } catch (error) {
+                body.setAttribute("aria-busy", "error");
+              }
             } else {
-              url.style.borderColor = "#E00";
+              body.setAttribute("aria-busy", "error");
             }
             break;
         }
@@ -202,21 +204,19 @@ window.onload = function() {
     timeout = setTimeout(handleRequest, 1200);
   }
 
-  input.focus();
-
-  // ZeroClipboard
-  var clip = new ZeroClipboard.Client();
-  clip.setHandCursor( true );
-  clip.glue( 'd_clip_button', 'd_clip_container' );
-  clip.addEventListener( 'onMouseDown', function() {
-      json = JSON.parse(input.value);
-      clip.setText(formatAsText(json, 0));
-  });
-  var label = document.getElementById("label");
-  clip.addEventListener( 'onMouseOver', function() {
-    label.style.visibility = "visible";
-  });
-  clip.addEventListener( 'onMouseOut', function() {
-    label.style.visibility = "hidden";
-  });
+  //// ZeroClipboard
+  //var clip = new ZeroClipboard.Client();
+  //clip.setHandCursor( true );
+  //clip.glue( 'd_clip_button', 'd_clip_container' );
+  //clip.addEventListener( 'onMouseDown', function() {
+  //    json = JSON.parse(input.value);
+  //    clip.setText(formatAsText(json, 0));
+  //});
+  //var label = document.getElementById("label");
+  //clip.addEventListener( 'onMouseOver', function() {
+  //  label.style.visibility = "visible";
+  //});
+  //clip.addEventListener( 'onMouseOut', function() {
+  //  label.style.visibility = "hidden";
+  //});
 }
