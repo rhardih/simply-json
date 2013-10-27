@@ -142,6 +142,7 @@ window.onload = function() {
   var url = document.getElementById("url");
   var right = document.getElementById("right");
   var body = document.getElementsByTagName("body")[0];
+  var intro = document.getElementById("intro");
   var timeout;
   var json;
 
@@ -150,6 +151,7 @@ window.onload = function() {
       json = JSON.parse(input.value);
       right.innerHTML = format(json, 0);
       input.className = "";
+      intro.style.display = "none";
     } catch (error) {
       input.className = "error";
     }
@@ -183,6 +185,7 @@ window.onload = function() {
                 json = JSON.parse(xhr.responseText);
                 input.value = xhr.responseText;
                 right.innerHTML = format(json, 0);
+                intro.style.display = "none";
               } catch (error) {
                 body.setAttribute("aria-busy", "error");
               }

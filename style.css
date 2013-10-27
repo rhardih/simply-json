@@ -93,6 +93,18 @@ textarea {
   font-size: 24px;
 }
 
+section {
+  position: relative;
+  left: 35%;
+  margin-top: 50px;
+  margin-left: 5%;
+  width: 55%;
+}
+
+section p {
+  margin-bottom: 30px;
+}
+
 #right {
   position: absolute;
   top: 70px;
