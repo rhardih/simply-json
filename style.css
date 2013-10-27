@@ -1,6 +1,8 @@
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
 }
 
 html, body {
@@ -9,52 +11,96 @@ html, body {
 
 body {
   font-family: "Courier New", Courier, monospace;
-  overflow: hidden;
-  font-size: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+#url {
+  width: 100%;
+  padding: 0 20px;
+  border: none;
+  border-bottom: 1px solid #dedede;
+  font-size: 1.3em;
+  height: 70px;
+}
+
+[aria-busy=true]:before {
+  position: absolute;
+  right: 0;
+  padding: 20px;
+  content: " ";
+  background: url(ajax-loader.gif);
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: center;
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+[aria-busy=false]:before {
+  display: none;
+}
+
+[aria-busy=error] #url {
+  color: red;
 }
 
 #left {
   position: absolute;
-  top: 0px;
+  top: 70px;
   bottom: 0px;
   left: 0px;
-  padding: 20px;
-  width: 340px;
+  border: none;
+  border-right: 1px solid #dedede;
+  width: 35%;
+}
+
+#json {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 20px 0 0 20px;
+  display: block;
+}
+
+#json.error {
+  color: red;
+}
+
+::-webkit-input-placeholder {
+  font-size: 24px;
+}
+
+:-moz-placeholder {
+  font-size: 24px;
+}
+
+::-moz-placeholder {
+  font-size: 24px;
+}
+
+:-ms-input-placeholder {
+  font-size: 24px;
 }
 
 #right {
   position: absolute;
-  top: 0px;
+  top: 70px;
   right: 0px;
   bottom: 0px;
-  left: 380px;
+  left: 35%;
   overflow: auto;
   padding: 20px;
-}
-
-#urlinput {
-  padding: 10px;
-  width: 300px;
-  height: 1em;
-  resize: none;
-  overflow:hidden;
-  outline: none;
-  border: 2px solid #EEE;
-  color: #333;
-}
-
-#input {
-  padding: 10px;
-  width: 300px;
-  height: 450px;
-  resize: none;
-  outline: none;
-  border: 2px solid #EEE;
-  color: #333;
-}
-
-img#loader {
-  display:none;
 }
 
 span.key {
@@ -108,21 +154,4 @@ span.elipsis {
   padding-left: 10px;
   clear: right;
   visibility: hidden;
-}
-
-#clear {
-  position: relative;
-  clear: both;
-  margin-bottom: 10px;
-}
-
-a#fork-link {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  color: #000;
-}
-
-a#fork-link img {
-  height: 25px;
 }
