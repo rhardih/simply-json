@@ -28,6 +28,17 @@ function highlightMatching(id, highlight) {
   }
 }
 
+/**
+ * Escape html entities from string
+ *
+ * Returns string
+ */
+function sanitize(str) {
+  return str.replace(/[&<>]/g, function(s) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;"}[s] || s;
+  });
+}
+
 var contentId = 0;
 var leftBracketCount = 0;
 
