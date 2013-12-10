@@ -65,7 +65,7 @@ function format(parsed_json, indent) {
   if(parsed_json === null ||
       typeof(parsed_json) === 'number' ||
       typeof(parsed_json) === 'boolean') {
-    result += '<span class="value">' + parsed_json + '</span>'; 
+    result += '<span class="value">' + parsed_json + '</span>';
   } else if(typeof(parsed_json) === 'string') {
     result += '<span class="value">"' + sanitize(parsed_json) + '"</span>';
   } else { // Array or object
@@ -94,11 +94,11 @@ function format(parsed_json, indent) {
     }
     result += items.join('<span class="comma">,</span><br />');
     result += '</div>';
-    result += '<span id="space#' + tmpContentId + '">' + spaces.substring(0, spaces.length - 2) + '</span>' + 
+    result += '<span id="space#' + tmpContentId + '">' + spaces.substring(0, spaces.length - 2) + '</span>' +
       '<span id="rightBracket#' + bracketCountValue +
       '" class="bracket"' + events + '>' + rightBracket +'</span>';
   }
-  
+
   return result;
 }
 
@@ -117,9 +117,9 @@ function formatAsText(parsed_json, indent) {
   if(parsed_json === null ||
       typeof(parsed_json) === 'number' ||
       typeof(parsed_json) === 'boolean') {
-    result += parsed_json; 
+    result += parsed_json;
   } else if(typeof(parsed_json) === 'string') {
-    result += '"' + parsed_json + '"'; 
+    result += '"' + parsed_json + '"';
   } else { // Array or object
     isArray = typeof(parsed_json) === 'object' && parsed_json.length != undefined;
     leftBracket = isArray ? '[' : '{';
@@ -143,7 +143,7 @@ function formatAsText(parsed_json, indent) {
     result += '\n';
     result += spaces.substring(0, spaces.length - 2) + rightBracket;
   }
-  
+
   return result;
 
 }
@@ -167,9 +167,8 @@ window.onload = function() {
       input.className = "error";
     }
   }
-  
+
   url.onkeyup = function() {
-    
     function handleRequest() {
       var xhr = new XMLHttpRequest();
       var json;
@@ -210,11 +209,11 @@ window.onload = function() {
       xhr.open("GET", 'proxy?uri=' + encodeURIComponent(url.value), true);
       xhr.send();
     }
-    
+
     if(timeout) {
       clearTimeout(timeout);
     }
-    
+
     timeout = setTimeout(handleRequest, 1200);
   }
 }
