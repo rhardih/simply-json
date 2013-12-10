@@ -67,7 +67,7 @@ function format(parsed_json, indent) {
       typeof(parsed_json) === 'boolean') {
     result += '<span class="value">' + parsed_json + '</span>'; 
   } else if(typeof(parsed_json) === 'string') {
-    result += '<span class="value">"' + parsed_json + '"</span>'; 
+    result += '<span class="value">"' + sanitize(parsed_json) + '"</span>';
   } else { // Array or object
     isArray = typeof(parsed_json) === 'object' && parsed_json.length != undefined;
     leftBracket = isArray ? '[' : '{';
