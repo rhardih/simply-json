@@ -113,6 +113,8 @@ section p {
   left: 35%;
   overflow: auto;
   padding: 20px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 span.key {
