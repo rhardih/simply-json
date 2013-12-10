@@ -111,10 +111,14 @@ section p {
   right: 0px;
   bottom: 0px;
   left: 35%;
-  overflow: auto;
   padding: 20px;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  overflow: hidden;
+}
+
+#right:hover {
+  overflow: auto;
 }
 
 span.key {
