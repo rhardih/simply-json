@@ -115,16 +115,20 @@ function stopDefault(e) {
 window.onload = function() {
   var input = document.getElementById("json");
   var url = document.getElementById("url");
+  var left = document.getElementById("left");
   var right = document.getElementById("right");
+  var rightOffset = right.getBoundingClientRect().left;
+  var formattedOutput = document.getElementById("formatted-output");
   var body = document.getElementsByTagName("body")[0];
   var intro = document.getElementById("intro");
   var timeout;
   var json;
+  var splitter = document.getElementById("splitter");
 
   input.onkeyup = function() {
     try {
       json = JSON.parse(input.value);
-      right.innerHTML = format(json, 0);
+      formattedOutput.innerHTML = format(json, 0);
       input.className = "";
       intro.style.display = "none";
     } catch (error) {
@@ -137,7 +141,7 @@ window.onload = function() {
       var xhr = new XMLHttpRequest();
       var json;
 
-      right.innerHTML = "";
+      formattedOutput.innerHTML = "";
       body.setAttribute("aria-busy", "true");
 
       xhr.onreadystatechange = function() {
@@ -158,7 +162,7 @@ window.onload = function() {
               try {
                 json = JSON.parse(xhr.responseText);
                 input.value = xhr.responseText;
-                right.innerHTML = format(json, 0);
+                formattedOutput.innerHTML = format(json, 0);
                 intro.style.display = "none";
               } catch (error) {
                 body.setAttribute("aria-busy", "error");
