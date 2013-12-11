@@ -102,52 +102,6 @@ function format(parsed_json, indent) {
   return result;
 }
 
-function formatAsText(parsed_json, indent) {
-  var result = "";
-  var items = [];
-  var property;
-  var tmp = "";
-  var i;
-  var spaces = (new Array(indent * 2 + 3)).join(' '); // zero indexed so 3 is min
-  var isArray;
-  var leftBracket;
-  var rightBracket;
-  var tmpContentId;
-
-  if(parsed_json === null ||
-      typeof(parsed_json) === 'number' ||
-      typeof(parsed_json) === 'boolean') {
-    result += parsed_json;
-  } else if(typeof(parsed_json) === 'string') {
-    result += '"' + parsed_json + '"';
-  } else { // Array or object
-    isArray = typeof(parsed_json) === 'object' && parsed_json.length != undefined;
-    leftBracket = isArray ? '[' : '{';
-    rightBracket = isArray ? ']' : '}';
-    result += leftBracket;
-    result += "\n";
-    tmpContentId = contentId++;
-    items = [];
-    if(isArray) {
-      for (i = 0; i < parsed_json.length; i++) {
-        items.push(spaces + formatAsText(parsed_json[i], indent + 1));
-      }
-    } else {
-      for (property in parsed_json) {
-        tmp = spaces + '"' + property + '":' +
-          formatAsText(parsed_json[property], indent + 1);
-        items.push(tmp);
-      }
-    }
-    result += items.join(',\n');
-    result += '\n';
-    result += spaces.substring(0, spaces.length - 2) + rightBracket;
-  }
-
-  return result;
-
-}
-
 window.onload = function() {
   var input = document.getElementById("json");
   var url = document.getElementById("url");
