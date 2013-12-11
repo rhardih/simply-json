@@ -126,10 +126,6 @@ textarea {
   right: 0px;
   bottom: 0px;
   left: 35%;
-  padding: 20px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  overflow: hidden;
 }
 
 #right:hover {
@@ -165,4 +161,11 @@ span.elipsis {
   padding-left: 10px;
   clear: right;
   visibility: hidden;
+}
+
+#formatted-output {
+  padding: 20px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;
 }
