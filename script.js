@@ -184,4 +184,19 @@ window.onload = function() {
 
     timeout = setTimeout(handleRequest, 1200);
   }
+
+  splitter.onmousedown = function(e) {
+    var start = e.clientX, diff = 0;
+
+    document.body.onmousemove = function(e) {
+      diff = e.clientX - start + rightOffset;
+      right.style.left = intro.style.left = left.style.width = diff + "px";
+    }
+
+    document.body.onmouseup = function() {
+      document.body.onmousemove = null;
+    }
+
+    stopDefault(e);
+  }
 }
