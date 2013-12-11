@@ -102,6 +102,16 @@ function format(parsed_json, indent) {
   return result;
 }
 
+function stopDefault(e) {
+  if (e && e.preventDefault) {
+    e.preventDefault();
+  }
+  else {
+    window.event.returnValue = false;
+  }
+  return false;
+}
+
 window.onload = function() {
   var input = document.getElementById("json");
   var url = document.getElementById("url");
