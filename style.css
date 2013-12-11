@@ -108,15 +108,15 @@ textarea {
   font-size: 24px;
 }
 
-section {
-  position: relative;
+#intro {
+  position: absolute;;
   left: 35%;
   margin-top: 50px;
   margin-left: 5%;
-  width: 55%;
+  margin-right: 5%;
 }
 
-section p {
+#intro p {
   margin-bottom: 30px;
 }
 
