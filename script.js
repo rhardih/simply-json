@@ -194,6 +194,7 @@ window.onload = function() {
     }
 
     document.body.onmouseup = function() {
+      rightOffset = parseInt(left.style.width);
       document.body.onmousemove = null;
     }
 
